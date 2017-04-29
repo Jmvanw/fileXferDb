@@ -85,10 +85,10 @@ class Feedback:
         self.entry_source.grid(row = 0, column = 1, padx = 5)
         self.entry_destination.grid(row = 1, column = 1, padx = 5)        
         self.entry_lastBackup.grid(row = 2, column = 1, padx =5)
-       
+       ##SRC
         ttk.Button(self.frame_content, text = 'Choose Folder',
                    command = self.getSrc).grid(row = 0, column = 2, padx = 5, pady = 5, sticky = 'e')
-        
+       ##DES 
         ttk.Button(self.frame_content, text = 'Choose Folder',
                    command = self.getDes).grid(row = 1, column = 2, padx = 5, pady = 5, sticky = 'w')
 
