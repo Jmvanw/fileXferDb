@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#Written in 3.6.0 by Jordan VanWyhe
 import tkinter as tk
 from tkinter import *
 import csv
@@ -18,12 +19,13 @@ def createTable():
     index_name = 'unique_index' # index names
     main_column = 'last_check_column' # name of the PRIMARY KEY column
     column_type = 'TEXT' # E.g., INTEGER, TEXT, NULL, REAL, BLOB, (TEXT REAL or INTEGER for Date and Time)
-
+    
     conn = sqlite3.connect(sqlite_file)
     c = conn.cursor()
 
     c.execute('CREATE TABLE IF NOT EXISTS {tn} ({ix} INTEGER PRIMARY KEY AUTOINCREMENT, {mc} {ct})'\
           .format(tn=table_name, ix=index_name, mc=main_column, ct=column_type));
+    # This is a bit complicated, but makes it easy to make new tables if you need to do that for some reason
     conn.commit()
     conn.close()
 
@@ -105,9 +107,10 @@ class Feedback:
         self.des_entry.set(des)
 
     def xfer(self):
+        print("working")
         src = self.src_entry.get() + '/'
         des = self.des_entry.get() + '/'
-        copyOver(src, des)
+        copyOver(src, des) ##Imported Module for file moving code
         updateTime()
         self.backup_entry.set(readTime())
         messagebox.showinfo('File Transfer', 'New files were transferred.')

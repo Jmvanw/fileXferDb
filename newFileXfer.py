@@ -1,6 +1,6 @@
+#Written in 3.6.0 by Jordan VanWyhe
 import shutil
 import os
-#from os import path
 from datetime import datetime
 from datetime import timedelta
 
